@@ -26,3 +26,6 @@ project/plugins/project/
 .scala_dependencies
 .worksheet
 >>>>>>> f13c2e945f42701955fa0a0a5a2ef9a216cac923
+
+# build
+build/containername.cfg
