@@ -14,7 +14,7 @@ workspace="workspace"
 docker run \
   --rm \
   -v "$(pwd):/$workspace" \
-  tdeheurles/jvm-tools "/$workspace/build/kubui.sh"
+  gcr.io/adaptive-jenkins/jvm-tools:latest "/$workspace/build/kubui.sh"
 
 
 # Prepare container
