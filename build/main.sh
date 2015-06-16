@@ -5,14 +5,6 @@
 # we share .m2 in jenkins-agent for settings
 # import names
 
-echo " "
-echo "USERNAME"
-username
-echo " "
-echo "gcloud context"
-gcloud config list
-
-
 
 . ./build/release.cfg
 artifactname="gcr.io/$projectid/$servicename:$servicemajor.$serviceminor.$BUILD_NUMBER"
@@ -24,8 +16,8 @@ workspace="workspace"
 docker run \
   --rm \
   -v "$(pwd):/$workspace" \
-  -v "/home/$(username)/.ivy2:/home/builder/.ivy2"
-  -v "/home/$(username)/.sbt:/home/builder/.sbt"
+  -v "/home/$(whoami)/.ivy2:/home/builder/.ivy2" \
+  -v "/home/$(whoami)/.sbt:/home/builder/.sbt" \
   gcr.io/adaptive-jenkins/jvm-tools:0.0.3 "/$workspace/build/kubui.sh"
 
 
