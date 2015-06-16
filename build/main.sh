@@ -5,11 +5,12 @@
 # we share .m2 in jenkins-agent for settings
 # import names
 
-. ./build/release.cfg
 
-artifact_version="$servicemajor.$serviceminor.$BUILD_NUMBER"
-artifactname="gcr.io/$projectid/$servicename"
-echo "artifactname=\"$artifactname:$artifact_version\"" > ./build/containername.cfg
+# Name it
+. ./build/release.cfg
+artifact_name="gcr.io/$projectid/$servicename"
+artifact_tag="$artifact_name:$servicemajor.$serviceminor.$BUILD_NUMBER"
+echo "artifactname=\"$artifac_tag\"" > ./build/containername.cfg
 
 
 # Build binaries
@@ -23,10 +24,11 @@ docker run \
 
 
 # Prepare container
-cp ./target/universal/stage   ./build/container/stage
-gcloud preview docker -- build -t $artifactname ./build/container/
-docker tag $artifactname $artifactname:$artifact_version
+cp -r ./target/universal/stage   ./build/container/stage
+gcloud preview docker -- build -t $artifact_name ./build/container/
+docker tag $artifact_name $artifact_tag
+
 
 # Push to Google Cloud Engine
-gcloud preview docker push $artifactname
-gcloud preview docker push $artifactname:$artifact_version
+gcloud preview docker push $artifact_name
+gcloud preview docker push $artifact_tag
