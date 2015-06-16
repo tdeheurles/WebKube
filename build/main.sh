@@ -18,7 +18,7 @@ docker run \
 
 
 # Prepare container
-cp  ./target/
+cp ./target/universal/stage   ./build/container/stage
 docker build -t $artifactname ./build/container/
 
 
