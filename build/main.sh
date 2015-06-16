@@ -19,8 +19,8 @@ docker run \
 
 # Prepare container
 cp ./target/universal/stage   ./build/container/stage
-docker build -t $artifactname ./build/container/
+gcloud preview docker -- build -t $artifactname ./build/container/
 
 
 # Push to Google Cloud Engine
-# gcloud preview docker push $artifactname
+gcloud preview docker push $artifactname
