@@ -1,4 +1,4 @@
-FROM        gcr.io/adaptive-jenkins/jvm-tools
+FROM        gcr.io/adaptive-jenkins/jvm-tools:0.0.3
 MAINTAINER  tdeheurles@gmail.com
 
 EXPOSE      9000
