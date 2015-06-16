@@ -5,10 +5,11 @@
 # we share .m2 in jenkins-agent for settings
 # import names
 
-
 . ./build/release.cfg
-artifactname="gcr.io/$projectid/$servicename:$servicemajor.$serviceminor.$BUILD_NUMBER"
-echo "artifactname=\"$artifactname\"" > ./build/containername.cfg
+
+artifact_version="$servicemajor.$serviceminor.$BUILD_NUMBER"
+artifactname="gcr.io/$projectid/$servicename"
+echo "artifactname=\"$artifactname:$artifact_version\"" > ./build/containername.cfg
 
 
 # Build binaries
@@ -16,15 +17,16 @@ workspace="workspace"
 docker run \
   --rm \
   -v "$(pwd):/$workspace" \
-  -v "/home/$(whoami)/.ivy2:/home/builder/.ivy2" \
-  -v "/home/$(whoami)/.sbt:/home/builder/.sbt" \
-  gcr.io/adaptive-jenkins/jvm-tools:0.0.3 "/$workspace/build/kubui.sh"
+  -v "/home/$(whoami)/.ivy2:/root/.ivy2" \
+  -v "/home/$(whoami)/.sbt:/root/.sbt" \
+  gcr.io/adaptive-jenkins/jvm-tools:latest "/$workspace/build/kubui.sh"
 
 
 # Prepare container
 cp ./target/universal/stage   ./build/container/stage
 gcloud preview docker -- build -t $artifactname ./build/container/
-
+docker tag $artifactname $artifactname:$artifact_version
 
 # Push to Google Cloud Engine
 gcloud preview docker push $artifactname
+gcloud preview docker push $artifactname:$artifact_version
