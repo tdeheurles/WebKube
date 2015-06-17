@@ -20,7 +20,7 @@ docker run \
   -v "$(pwd):/$workspace" \
   -v "/home/$(whoami)/.ivy2:/root/.ivy2" \
   -v "/home/$(whoami)/.sbt:/root/.sbt" \
-  gcr.io/adaptive-jenkins/jvm-tools:latest "/$workspace/build/kubui.sh"
+  gcr.io/epsilon-jenkins/jvm-tools:latest "/$workspace/build/kubui.sh"
 
 
 # Prepare container
