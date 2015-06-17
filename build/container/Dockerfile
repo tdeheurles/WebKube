@@ -4,8 +4,8 @@ MAINTAINER  tdeheurles@gmail.com
 EXPOSE      9000
 ADD         ./stage     /service
 
-RUN         chmod 777 /service/bin/kubeui.sh
-ENTRYPOINT  /service/bin/kubeui.sh
+RUN         chmod 777 /service/bin/kubeui
+ENTRYPOINT  /service/bin/kubeui
 
 
 # TODO: ADD artifact to some PATH
