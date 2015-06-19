@@ -19,7 +19,7 @@ sed -i "s/__build__/$BUILD_NUMBER/g" $rcfile
 sed -i "s|__image__|$1|g" $rcfile
 sed -i "s/__privatePortName__/$servicename/g" $rcfile
 sed -i "s/__privatePort__/$serviceport/g" $rcfile
-
+sed -i "s/__replicas__/1/g" $rcfile
 
 
 # SERVICE
