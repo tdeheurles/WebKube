@@ -10,7 +10,7 @@
 . ./build/release.cfg
 artifact_name="gcr.io/$projectid/$servicename"
 artifact_tag="$artifact_name:$servicemajor.$serviceminor.$BUILD_NUMBER"
-echo "artifactname=\"$artifac_tag\"" > ./build/containername.cfg
+echo "containername=\"$artifact_tag\"" > ./build/containername.cfg
 
 
 # Build binaries
