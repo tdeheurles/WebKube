@@ -10,7 +10,7 @@
 . ./build/release.cfg
 artifact_name="gcr.io/$projectid/$servicename"
 artifact_tag="$artifact_name:$servicemajor.$serviceminor.$BUILD_NUMBER"
-echo "containername=\"$artifact_tag\"" > ./build/containername.cfg
+#echo "containername=\"$artifact_tag\"" > ./build/containername.cfg
 
 
 # Build binaries
@@ -38,4 +38,4 @@ gcloud preview docker push $artifact_tag
 
 # generate manifests
 rm ./deploy/kubernetes/*.json
-./build/generate_manifests.sh
+./build/generate_manifests.sh artifact_tag
