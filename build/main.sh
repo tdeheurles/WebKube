@@ -25,7 +25,7 @@ docker run \
 
 # Prepare container
 mkdir -p ./build/container
-sed "s/__PORT__/$serviceport/g" ./build/template.Dockerfile > ./build/container/Dockerfile
+sed "s/__SERVICEPORT__/$serviceport/g" ./build/template.Dockerfile > ./build/container/Dockerfile
 cp -r ./target/universal/stage   ./build/container/stage
 gcloud preview docker -- build -t $artifact_name ./build/container/
 docker tag $artifact_name $artifact_tag
@@ -37,4 +37,5 @@ gcloud preview docker push $artifact_tag
 
 
 # generate manifests
+rm ./deploy/kubernetes/*.json
 ./build/generate_manifests.sh

@@ -12,7 +12,7 @@
     "ports": [
       {
         "name": "__publicPortName__",
-        "port": "__publicPort__",
+        "port": __publicPort__,
         "targetPort": "__privatePortName__",
         "protocol": "TCP"
       }
