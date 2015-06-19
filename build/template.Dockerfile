@@ -1,7 +1,7 @@
 FROM        gcr.io/epsilon-jenkins/jvm-tools:latest
 MAINTAINER  tdeheurles@gmail.com
 
-EXPOSE      9000
+EXPOSE      __SERVICEPORT__
 ADD         ./stage     /service
 
 RUN         chmod 777 /service/bin/kubeui

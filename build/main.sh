@@ -24,6 +24,7 @@ docker run \
 
 
 # Prepare container
+sed "s/__PORT__/$serviceport/g" ./build/template.Dockerfile > ./build/container/Dockerfile
 cp -r ./target/universal/stage   ./build/container/stage
 gcloud preview docker -- build -t $artifact_name ./build/container/
 docker tag $artifact_name $artifact_tag
@@ -32,3 +33,7 @@ docker tag $artifact_name $artifact_tag
 # Push to Google Cloud Engine
 gcloud preview docker push $artifact_name
 gcloud preview docker push $artifact_tag
+
+
+# generate manifests
+./build/generate_manifests.sh

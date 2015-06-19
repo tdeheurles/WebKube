@@ -1,0 +1,47 @@
+{
+  "apiVersion": "v1beta3",
+  "kind": "ReplicationController",
+  "metadata": {
+    "name": "__RCNAME__",
+    "labels": {
+      "name": "__RCNAME__",
+      "major": "__MAJOR__",
+      "minor": "__MINOR__",
+      "build": "__BUILD__"
+    }
+  },
+  "spec": {
+    "replicas": __REPLICAS__,
+    "selector": {
+      "name": "__RCNAME__",
+      "major": "__MAJOR__",
+      "minor": "__MINOR__",
+      "build": "__BUILD__"
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "name": "__RCNAME__",
+          "major": "__MAJOR__",
+          "minor": "__MINOR__",
+          "build": "__BUILD__"
+        }
+      },
+      "spec": {
+        "containers": [{
+          "name": "__RCNAME__",
+          "image": "__IMAGE__",
+          "ports": [{
+
+            "containerPort": __CONTAINERPORT__,
+          }],
+          "imagePullPolicy": "IfNotPresent"
+        }],
+        "restartPolicy": {
+          "always": {}
+        },
+        "dnsPolicy": "ClusterFirst"
+      }
+    }
+  }
+}
