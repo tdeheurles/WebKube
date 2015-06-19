@@ -23,10 +23,10 @@ sed -i "s/__privatePort__/$serviceport/g" $rcfile
 servicefile=./deploy/kubernetes/$servicename\_$versiontag\_service.json
 
 sed "s/__serviceName__/$servicename-m$servicemajor/g" \
-    ./deploy/kubernetes/$k8s_api_version/service.template.json > $service
-sed -i "s/__major__/$servicemajor/g" $service
-sed -i "s/__minor__/$serviceminor/g" $service
-sed -i "s/__build__/$BUILD_NUMBER/g" $service
-sed -i "s/__image__/$artifact_tag/g" $service
-sed -i "s/__privatePortName__/$servicename/g" $service
-sed -i "s/__privatePort__/$serviceport/g" $service
+    ./deploy/kubernetes/$k8s_api_version/service.template.json > $servicefile
+sed -i "s/__major__/$servicemajor/g" $servicefile
+sed -i "s/__minor__/$serviceminor/g" $servicefile
+sed -i "s/__build__/$BUILD_NUMBER/g" $servicefile
+sed -i "s/__image__/$artifact_tag/g" $servicefile
+sed -i "s/__privatePortName__/$servicename/g" $servicefile
+sed -i "s/__privatePort__/$serviceport/g" $servicefile
