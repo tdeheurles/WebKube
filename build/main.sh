@@ -38,4 +38,4 @@ gcloud preview docker push $artifact_tag
 
 # generate manifests
 rm ./deploy/kubernetes/*.json
-./build/generate_manifests.sh artifact_tag
+./build/generate_manifests.sh $artifact_tag
