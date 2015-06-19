@@ -17,7 +17,7 @@ sed "s/__rcName__/$rcname/g" \
 sed -i "s/__major__/$servicemajor/g" $rcfile
 sed -i "s/__minor__/$serviceminor/g" $rcfile
 sed -i "s/__build__/$BUILD_NUMBER/g" $rcfile
-sed -i "s/__image__/$artifact_tag/g" $rcfile
+sed -i "s/__image__/$containername/g" $rcfile
 sed -i "s/__privatePortName__/$servicename/g" $rcfile
 sed -i "s/__privatePort__/$serviceport/g" $rcfile
 
@@ -31,7 +31,6 @@ sed "s/__serviceName__/$servicename/g" \
 sed -i "s/__major__/$servicemajor/g" $servicefile
 sed -i "s/__minor__/$serviceminor/g" $servicefile
 sed -i "s/__build__/$BUILD_NUMBER/g" $servicefile
-sed -i "s/__image__/$containername/g" $servicefile
 sed -i "s/__privatePortName__/$servicename/g" $servicefile
 sed -i "s/__publicPortName__/$servicename/g" $servicefile
 sed -i "s/__publicPort__/$serviceport/g" $servicefile

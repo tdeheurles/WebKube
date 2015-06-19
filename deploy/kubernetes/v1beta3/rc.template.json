@@ -22,7 +22,7 @@
       "metadata": {
         "name": "__rcName__",
         "labels": {
-          "name": "__rcName",
+          "name": "__rcName__",
           "major": "__major__",
           "minor": "__minor__",
           "build": "__build__"
