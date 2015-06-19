@@ -9,7 +9,7 @@ versiontag=$servicemajor.$serviceminor.$BUILD_NUMBER
 rcfile=./deploy/kubernetes/$servicename\_$versiontag\_rc.json
 
 sed "s/__rcName__/$servicename-m$servicemajor\m$serviceminor\m$BUILD_NUMBER/g" \
-    ./deploy/kubernetes/$k8s_api_version/rc.template.yml > $rcfile
+    ./deploy/kubernetes/$k8s_api_version/rc.template.json > $rcfile
 sed -i "s/__major__/$servicemajor/g" $rcfile
 sed -i "s/__minor__/$serviceminor/g" $rcfile
 sed -i "s/__build__/$BUILD_NUMBER/g" $rcfile
@@ -23,7 +23,7 @@ sed -i "s/__privatePort__/$serviceport/g" $rcfile
 servicefile=./deploy/kubernetes/$servicename\_$versiontag\_service.json
 
 sed "s/__serviceName__/$servicename-m$servicemajor/g" \
-    ./deploy/kubernetes/$k8s_api_version/rc.template.yml > $service
+    ./deploy/kubernetes/$k8s_api_version/service.template.json > $service
 sed -i "s/__major__/$servicemajor/g" $service
 sed -i "s/__minor__/$serviceminor/g" $service
 sed -i "s/__build__/$BUILD_NUMBER/g" $service
