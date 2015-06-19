@@ -16,7 +16,7 @@ sed "s/__rcName__/$rcname/g" \
 sed -i "s/__major__/$servicemajor/g" $rcfile
 sed -i "s/__minor__/$serviceminor/g" $rcfile
 sed -i "s/__build__/$BUILD_NUMBER/g" $rcfile
-sed -i "s/__image__/$1/g" $rcfile
+sed -i "s|__image__|$1|g" $rcfile
 sed -i "s/__privatePortName__/$servicename/g" $rcfile
 sed -i "s/__privatePort__/$serviceport/g" $rcfile
 
