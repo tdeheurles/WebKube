@@ -24,6 +24,7 @@ docker run \
 
 
 # Prepare container
+mkdir -p ./build/container
 sed "s/__PORT__/$serviceport/g" ./build/template.Dockerfile > ./build/container/Dockerfile
 cp -r ./target/universal/stage   ./build/container/stage
 gcloud preview docker -- build -t $artifact_name ./build/container/

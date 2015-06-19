@@ -1,46 +1,46 @@
 {
-  "apiVersion": "v1beta3",
   "kind": "ReplicationController",
+  "apiVersion": "v1beta3",
   "metadata": {
-    "name": "__RCNAME__",
+    "name": "__rcName__",
     "labels": {
-      "name": "__RCNAME__",
-      "major": "__MAJOR__",
-      "minor": "__MINOR__",
-      "build": "__BUILD__"
+      "name": "__rcName__",
+      "major": "__major__",
+      "minor": "__minor__",
+      "build": "__build__"
     }
   },
   "spec": {
-    "replicas": __REPLICAS__,
+    "replicas": __replicas__,
     "selector": {
-      "name": "__RCNAME__",
-      "major": "__MAJOR__",
-      "minor": "__MINOR__",
-      "build": "__BUILD__"
+      "name": "__rcName__",
+      "major": "__major__",
+      "minor": "__minor__",
+      "build": "__build__"
     },
     "template": {
       "metadata": {
+        "name": "__rcName__",
         "labels": {
-          "name": "__RCNAME__",
-          "major": "__MAJOR__",
-          "minor": "__MINOR__",
-          "build": "__BUILD__"
+          "name": "__rcName",
+          "major": "__major__",
+          "minor": "__minor__",
+          "build": "__build__"
         }
       },
       "spec": {
-        "containers": [{
-          "name": "__RCNAME__",
-          "image": "__IMAGE__",
-          "ports": [{
-
-            "containerPort": __CONTAINERPORT__,
-          }],
-          "imagePullPolicy": "IfNotPresent"
-        }],
-        "restartPolicy": {
-          "always": {}
-        },
-        "dnsPolicy": "ClusterFirst"
+        "containers": [
+          {
+            "name": "__rcName__",
+            "image": "__image__",
+            "ports": [
+                {
+                  "name": "__privatePortName__",
+                  "containerPort": __privatePort__
+                }
+            ]
+          }
+        ]
       }
     }
   }
