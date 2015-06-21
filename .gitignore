@@ -30,3 +30,6 @@ project/plugins/project/
 # build
 build/containername.cfg
 build/container
+
+# deploy
+deploy/kubernetes/*.json
